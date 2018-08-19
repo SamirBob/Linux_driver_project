@@ -1,0 +1,10 @@
+在Linux驱动程序中，可以使用等待队列(wait queue)来实现阻塞进程的唤醒
+1、定义“等待队列头”
+wait_queue_head_t example_queue;
+2、初始化“等待队列头”
+init_waitqueue_head(&example_queue);
+也可以使用宏操作
+DECLARE_WAIT_QUEUE_HEAD (name)
+3、定义等待队列
+DECLARE_WAITQUEUE(example, tsk)
+4、添加/移除等待队列

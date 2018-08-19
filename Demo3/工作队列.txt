@@ -1,0 +1,10 @@
+工作队列
+1、定义一个工作队列和一个底半部执行函数
+struct work_struct my_wq;//定义一个工作队列
+void my_wq_func(unsigned long);//定义一个处理函数
+
+通过INIT_WORK()可以初始化这个工作队列并将工作队列与处理函数绑定
+INIT_WORK(&my_wq, (void (*)(void *)) my_wq_func, NULL);//初始化工作队列并将其与处理函数绑定
+
+调度工作队列执行的函数为schedule_work()
+schedule_work(&my_wq);//调度工作队列执行

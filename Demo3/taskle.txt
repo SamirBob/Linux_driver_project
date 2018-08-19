@@ -1,0 +1,9 @@
+tasklet
+tasklet的使用比较简单，我们只需要定义tasklet及其处理函数并将两者关联
+void my_tasklet_func(unsigned long);//定义一个处理函数
+#define DECLARE_TASKLET(name, func, data)
+name:是tasklet名字；func:是执行tasklet函数(带有一个unsigned long型的参数并且返回void)；data是返回
+一个用来传递给tasklet函数的unsigned long类型的值
+
+在需要调度tasklet的时候引用一个tasklet_schedule()函数，这使得系统在适当的时候进行调度指定的tasklet
+运行：tasklet_schedule(&my_tasklet)
